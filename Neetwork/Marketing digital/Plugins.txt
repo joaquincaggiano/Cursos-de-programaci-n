@@ -1,0 +1,57 @@
+PLUGINS:
+
+-Adapta RGPD: politica de seguridad, cookies, etc.
+
+-AddToAny Share Buttons: para colocar logos de redes sociales.
+
+-Antispam Bee: antispam
+
+-Autoptimize
+
+-Async JavaScript
+
+-Comments-wpDiscuz: agregar comentarios de facebook, disquis.
+
+-Elementor: editor
+
+-Embed plus for youtube – Gallery, Channel, Playlist, Live Stream: descargar videos de yotube.
+
+-Essential addons for elementor
+
+-Exclusive addons for elementor
+
+-External Links in New Window / New Tab: para que todo link se habra en otra pestaña.
+
+-Importador de Wordpress:para importar entradas, paginas, etc.
+
+-iThemes Security:seguridad del sitio.
+
+-Jetpack by wordpress:optimizador de página.
+
+-MC4WP: Mailchimp for Wordpress: para integrar los formularios de Mailchimps en wordpress
+
+-Pretty links: acortar URL
+
+-Really simple SSL
+
+-Really simple HTML
+
+-Redirection: para redirigir errores 404
+
+-Related Post for Wordpress: para agregar contenido relacionado.
+
+-reSmush.it: compresor de imágenes
+
+-Schema-all in one schema rich snippets: para agregar rich snippets al sitio
+
+-ShortPixel Imagen Optimizer: optimizar imagenes
+
+-Speed booster pack pagespeed & performance optimization
+
+-UpdraftPlus - Backup/Restore: para realizar copias de seguridad
+
+-WPS Hide Login: como se ve el link de tu inicio en tu pagina
+
+-W3 Total cache
+
+-Yoast SEO:no se todavia

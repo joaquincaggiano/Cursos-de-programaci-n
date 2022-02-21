@@ -1,0 +1,7 @@
+function sumarMonedas (cantidadDeMonedas) {
+let acumulador = 0;
+for (let i = 0; i < cantidadDeMonedas; i++) {
+acumulador = acumulador + 0.25;
+}
+return acumulador
+}

@@ -1,0 +1,53 @@
+Ejercitacion clase 30:
+
+microdesafio 1:
+ Parte 1: 
+- SELECT genres.name, series.title
+FROM genres
+INNER JOIN series
+ON genres.id = series.genre_id
+
+
+ Parte 2: 
+- SELECT actors.first_name, actors.last_name, episodes.title 
+FROM actors 
+INNER JOIN actor_episode
+ON actor_episode.actor_id = actors.id 
+INNER JOIN episodes
+ON episodes.id = actor_episode.episode_id
+
+o
+
+- SELECT episodes.title, concat(actors.first_name," ",actors.last_name) as "Nombre Completo" FROM `actor_episode` 
+INNER JOIN actors on actor_episode.actor_id=actors.id
+INNER JOIN episodes on actor_episode.episode_id=episodes.id
+
+Microdesafio parte 2:
+
+- SELECT /*DISTINCT*/ actors.first_name "Nombre", actors.last_name "Apellido"
+FROM actor_movie
+INNER JOIN actors ON actors.id = actor_movie.actor_id
+INNER JOIN movies ON movies.id = actor_movie.movie_id
+WHERE movies.title LIKE "La guerra%";
+
+Microdesafio parte 3:
+
+SELECT movies.title, COALESCE(genres.name, "no tiene género") FROM movies
+LEFT JOIN genres ON genres.id = movies.genre_id
+
+Microdesario parte 4:
+SELECT series.title, DATEDIFF(series.end_date, series.release_date) AS "Duración" FROM series;
+
+Microdesario parte 5:
+1.
+
+2. SELECT COUNT(*) FROM episodes
+
+3. 
+
+4. SELECT genres.name, COUNT(genres.name) AS "Cantidad de películas" FROM genres
+INNER JOIN movies ON genres.id = movies.genre_id
+GROUP BY genres.name
+HAVING COUNT(genres.name) >= 3;
+
+

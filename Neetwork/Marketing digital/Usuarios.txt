@@ -1,0 +1,46 @@
+HOSTGATOR:
+Usuario: joaquincaggiano@gmail.com
+Contraseña: LoCelso18 o LoCelso1889
+
+DATABASES
+Usuario: newmeica_NewMEC
+contraseña: RPP(XSAqTwFB
+
+EMAIL ADMINISTRATIVO:
+usuario:newmeica@newmestetica.com
+Contraseña:
+Usuario de respaldo: soportenewme
+Contraseña: ehRr^LJ&Lw#o
+
+WORDPRESS:
+Usuario:joaquincaggiano
+Contraseña: 8iWcq&5YKQ8FdzAJ!p
+Pagina: https://newmestetica.com/welcome-beauty
+
+SharePixel:
+usuario: joaquincaggiano@gmail.com
+Contraeña API: aJJnjIXCRiYI58wc7qF9
+
+ELEMENTOR:
+Usuario: joaquincaggiano@gmail.com
+Contraseña: AyKohtL7541?
+
+MAIL:
+usuario: joaquinadmin@newmestetica.com
+Contraseña: cokLe-PJI;Ii
+
+CLOUDFLARE:
+Usuario: joaquincaggiano@gmail.com
+Contraseña: T0myP3luBFF?
+
+FACEBOOK APPS:
+Identificador: 6019475528126786
+Contraseña: fee6b99b1fc1de2dbe01483bb41e66df
+
+MAILCHIMP
+Usuario: joaquincaggiano@gmail.com
+Contraseña: .H5J4m8p.WfFKMF
+
+CERTIFICACIONES:
+Usuario: joaquincaggiano@gmail.com
+Contraseña: T0myP3luBBF<3

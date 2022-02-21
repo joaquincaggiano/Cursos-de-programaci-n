@@ -1,0 +1,16 @@
+Parte 1:
+select generos.nombre, count(generos.nombre)
+from canciones
+INNER JOIN generos ON id_genero = generos.id
+WHERE generos.nombre = "Blues";
+
+Parte 2: 
+SELECT artistas.nombre, AVG(canciones.milisegundos) FROM canciones
+INNER JOIN albumes ON albumes.id = canciones.id_album
+INNER JOIN artistas ON artistas.id = albumes.id_artista
+WHERE artistas.nombre = "AC/DC" AND albumes.titulo = "Let There Be Rock"
+GROUP BY artistas.nombre
+
+Parte 3:
+SELECT MAX(facturas.total) FROM facturas
+WHERE facturas.id_cliente = 48

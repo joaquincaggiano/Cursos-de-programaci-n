@@ -1,0 +1,1 @@
+https://api.accredible.com/v1/auth/invite?code=76c92dbd27ba26eb8555&credential_id=1956028a-faca-4b3e-a787-8bcc8c2cfa41&url=https%3A%2F%2Fwww.credential.net%2F1956028a-faca-4b3e-a787-8bcc8c2cfa41&ident=68452c016654891fa37ddab67125d9755da8540d

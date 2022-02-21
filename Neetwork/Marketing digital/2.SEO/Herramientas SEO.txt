@@ -1,0 +1,33 @@
+Herramientas SEO:
+
+-Google Keyword planner
+
+-Analiza visibilidad del dominio
+
+-Obtén SSL con cloudflare
+
+-Obtén SSL con Let´s encrypt
+
+-Google Pagespeed insights
+
+-WP Rocket
+
+-Ubbersuggest: para encontrar las mejores palabras orgánicas de mis competidores. SD menor a 40 es baja la competencia.
+
+-Webpagetest
+
+-Pingdom speed test
+
+-Similarweb: busca competidores similares con sus palabras claves.
+
+-Alexa: mejor herramienta para encontrar el ranking global de un sitio.
+
+-Spyfu:mejor herramienta amigable con el usuario para encontrar competidores.
+
+-Searchmetrics: que tan visible es un sitio web
+
+-SEMRush: transforma palabras claves genéricas en longtail
+
+-Openlinkprofiler
+
+-Qualys: permite verificar https
