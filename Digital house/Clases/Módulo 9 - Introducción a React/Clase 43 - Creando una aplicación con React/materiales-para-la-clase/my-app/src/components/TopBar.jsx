@@ -1,3 +1,5 @@
+import jordanWalk from "../assets/images/jordan-walke.png"
+
 function TopBar() {
   return (
     <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
@@ -38,7 +40,7 @@ function TopBar() {
             </span>
             <img
               className="img-profile rounded-circle"
-              src="assets/images/jordan-walke.png"
+              src={jordanWalk}
               alt="Jordan Walke - Creador de React"
               width="60"
             />

@@ -1,3 +1,5 @@
+import logoDh from "../assets/images/logo-DH.png"
+
 function SideBar () {
     return(
        
@@ -6,7 +8,7 @@ function SideBar () {
 			
 			<a className="sidebar-brand d-flex align-items-center justify-content-center" href="/">
 				<div className="sidebar-brand-icon">
-					<img className="w-100" src="assets/images/logo-DH.png" alt="Digital House"/>
+					<img className="w-100" src={logoDh} alt="Digital House"/>
 				</div>
 			</a>
 
