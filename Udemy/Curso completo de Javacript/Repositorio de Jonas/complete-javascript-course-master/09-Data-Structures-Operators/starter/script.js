@@ -58,8 +58,8 @@ const restaurant = {
 // function add (...numbers) {
 //   let sum = 0;
 //   for (let i = 0; i < numbers.length; i++) {
-//     sum += numbers[i] 
-//   } 
+//     sum += numbers[i]
+//   }
 //   console.log(sum);
 // }
 
@@ -78,14 +78,14 @@ const restaurant = {
 
 // LOGICAL ASSIGMENTS OPERATORS
 const rest1 = {
-  name: "Capri",
-  numGuests: 20
-}
+  name: 'Capri',
+  numGuests: 20,
+};
 
 const rest2 = {
-  name: "La Piazza",
-  owner: "Giovanni Rossi"
-}
+  name: 'La Piazza',
+  owner: 'Giovanni Rossi',
+};
 
 // rest2.numGuests = rest2.numGuests || 10;
 // rest1.numGuests = rest1.numGuests || 10;
@@ -171,7 +171,7 @@ const rest2 = {
 //   // Task 7
 //   team1 < team2 && console.log("Team 1 is more likely to win");
 //   team1 > team2 && console.log("Team 2 is more likely to win");
-  
+
 // FOR OF LOOP
 // const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
 
@@ -184,7 +184,6 @@ const rest2 = {
 // for (const [i, el] of menu.entries()) {
 //   console.log(`${i + 1}: ${el}`);//1: Pizza 2: Pasta 3: Risotto 4: Focaccia 5: Bruschetta 6: Garlic Bread 7: Caprese Salad
 // }
-
 
 // OPTIONAL CHAINING
 // if (restaurant.openingHours && restaurant.openingHours.mon) {
@@ -212,9 +211,123 @@ const rest2 = {
 // const values =Object.values(restaurant.openingHours);
 // console.log(values);//[{ open: 12, close: 22 },{ open: 11, close: 23 },{ open: 0, close: 24 }]
 
-const entries = Object.entries(restaurant.openingHours);
+// const entries = Object.entries(restaurant.openingHours);
 // console.log(entries);
-for (const [key, {open, close}] of entries) {
-  console.log(`On ${key} we open at ${open} and close at ${close}`);
-  //On thu we open at 12 and close at 22. On fri we open at 11 and close at 23. On sat we open at 0 and close at 24
-}
+// for (const [key, {open, close}] of entries) {
+//   console.log(`On ${key} we open at ${open} and close at ${close}`);
+//   //On thu we open at 12 and close at 22. On fri we open at 11 and close at 23. On sat we open at 0 and close at 24
+// }
+
+// CODING CHALLENGE 2
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+// Task 1
+// for (const [i, el] of game.scored.entries()){
+//   console.log(`Goal ${i + 1}: ${el}`);
+// }
+
+// Task 2
+// let average = 0;
+// const odds = Object.values(game.odds);
+// for (const odd of odds) {
+//   average += odd;
+//   average /= odds.length;
+//   console.log(average);
+// }
+
+// Task 3
+// for (const [team, odd] of Object.entries(game.odds) ) {
+//   const teamStr = team === "x" ? "draw" : `${game[team]}`
+//   console.log(`Odd of victory ${teamStr}: ${odd}.`);
+// }
+
+// Bonus
+//  const scorers = {}
+//  for(const player of game.scored){
+//   scorers[player] ? scorers[player]++ : (scorers[player] = 1);
+//  }
+//  console.log(scorers);
+
+// SETS
+// const orderSet = new Set(["pizza", "pasta", "pasta", "pizza", "risotto"])
+// console.log(orderSet);//pizza, pasta, risotto
+// console.log(orderSet.size); // 3
+// console.log(orderSet.has("pizza")); //true
+// orderSet.add("Garlic Bread");
+// orderSet.delete("risotto")
+// console.log(orderSet);//'pizza', 'pasta', 'Garlic Bread'
+// for (const order of orderSet) console.log(order); //pizza, pasta, Garlic Bread
+
+// Example to transform a set into a array
+// const staff = ["Waiter", "Chef", "Manager", "Waiter", "Chef", "Waiter"];
+// const staffUnique = [...new Set(staff)];
+// console.log(staffUnique); //[ 'Waiter', 'Chef', 'Manager' ]
+
+// MAPS
+const rest = new Map();
+rest.set('name', 'Classico Italiano');
+rest.set(1, 'Firenze, Italy');
+// console.log(rest);//{ 'name' => 'Classico Italiano', 1 => 'Firenze, Italy' }
+rest
+  .set(2, 'Lisbon', 'Portugal')
+  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set('open', 11)
+  .set('close', 23)
+  .set(true, 'We are open')
+  .set(false, 'We are closed');
+
+// get: para leer datos del map
+// console.log(rest.get("name"));//Classico Italiano
+// console.log(rest.get(true));//We are open
+
+// has: para ver si esta la key en el Map
+// console.log(rest.has("categories"));//true
+
+// delete: borra una key
+// rest.delete(2);//borro la segunda ubicación del restaurante
+
+// size: cuantos elementos hay
+// console.log(rest.size);//8
+
+// clear: elimina todo del Map
+// rest.clear();
+// console.log(rest);//Map(0) {}
