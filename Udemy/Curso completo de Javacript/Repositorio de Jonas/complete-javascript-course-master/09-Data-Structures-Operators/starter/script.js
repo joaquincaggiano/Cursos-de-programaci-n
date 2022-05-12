@@ -77,15 +77,15 @@ const restaurant = {
 // console.log(guestCorrect);// el valor da 0
 
 // LOGICAL ASSIGMENTS OPERATORS
-const rest1 = {
-  name: 'Capri',
-  numGuests: 20,
-};
+// const rest1 = {
+//   name: 'Capri',
+//   numGuests: 20,
+// };
 
-const rest2 = {
-  name: 'La Piazza',
-  owner: 'Giovanni Rossi',
-};
+// const rest2 = {
+//   name: 'La Piazza',
+//   owner: 'Giovanni Rossi',
+// };
 
 // rest2.numGuests = rest2.numGuests || 10;
 // rest1.numGuests = rest1.numGuests || 10;
@@ -219,46 +219,46 @@ const rest2 = {
 // }
 
 // CODING CHALLENGE 2
-const game = {
-  team1: 'Bayern Munich',
-  team2: 'Borrussia Dortmund',
-  players: [
-    [
-      'Neuer',
-      'Pavard',
-      'Martinez',
-      'Alaba',
-      'Davies',
-      'Kimmich',
-      'Goretzka',
-      'Coman',
-      'Muller',
-      'Gnarby',
-      'Lewandowski',
-    ],
-    [
-      'Burki',
-      'Schulz',
-      'Hummels',
-      'Akanji',
-      'Hakimi',
-      'Weigl',
-      'Witsel',
-      'Hazard',
-      'Brandt',
-      'Sancho',
-      'Gotze',
-    ],
-  ],
-  score: '4:0',
-  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
-  date: 'Nov 9th, 2037',
-  odds: {
-    team1: 1.33,
-    x: 3.25,
-    team2: 6.5,
-  },
-};
+// const game = {
+//   team1: 'Bayern Munich',
+//   team2: 'Borrussia Dortmund',
+//   players: [
+//     [
+//       'Neuer',
+//       'Pavard',
+//       'Martinez',
+//       'Alaba',
+//       'Davies',
+//       'Kimmich',
+//       'Goretzka',
+//       'Coman',
+//       'Muller',
+//       'Gnarby',
+//       'Lewandowski',
+//     ],
+//     [
+//       'Burki',
+//       'Schulz',
+//       'Hummels',
+//       'Akanji',
+//       'Hakimi',
+//       'Weigl',
+//       'Witsel',
+//       'Hazard',
+//       'Brandt',
+//       'Sancho',
+//       'Gotze',
+//     ],
+//   ],
+//   score: '4:0',
+//   scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+//   date: 'Nov 9th, 2037',
+//   odds: {
+//     team1: 1.33,
+//     x: 3.25,
+//     team2: 6.5,
+//   },
+// };
 
 // Task 1
 // for (const [i, el] of game.scored.entries()){
@@ -303,17 +303,17 @@ const game = {
 // console.log(staffUnique); //[ 'Waiter', 'Chef', 'Manager' ]
 
 // MAPS
-const rest = new Map();
-rest.set('name', 'Classico Italiano');
-rest.set(1, 'Firenze, Italy');
-// console.log(rest);//{ 'name' => 'Classico Italiano', 1 => 'Firenze, Italy' }
-rest
-  .set(2, 'Lisbon', 'Portugal')
-  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
-  .set('open', 11)
-  .set('close', 23)
-  .set(true, 'We are open')
-  .set(false, 'We are closed');
+// const rest = new Map();
+// rest.set('name', 'Classico Italiano');
+// rest.set(1, 'Firenze, Italy');
+// // console.log(rest);//{ 'name' => 'Classico Italiano', 1 => 'Firenze, Italy' }
+// rest
+//   .set(2, 'Lisbon', 'Portugal')
+//   .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+//   .set('open', 11)
+//   .set('close', 23)
+//   .set(true, 'We are open')
+//   .set(false, 'We are closed');
 
 // get: para leer datos del map
 // console.log(rest.get("name"));//Classico Italiano
@@ -331,3 +331,157 @@ rest
 // clear: elimina todo del Map
 // rest.clear();
 // console.log(rest);//Map(0) {}
+
+// INICIALIZAR MAP CON UN ARRAY
+// const question = new Map([
+//   ["question", "What is the best programming language in the world?"],
+//   [1, "C"],
+//   [2, "Java"],
+//   [3, "Javascript"],
+//   ["correct", 3],
+//   [true, "Correct"],
+//   [false, "Try again!"]
+// ]);
+// console.log(question);
+
+// CONVERTIR UN OBJETO EN UN MAP
+// const hoursMap = new Map(Object.entries(restaurant.openingHours))
+// console.log(hoursMap); //Map(3) {'thu' => { open: 12, close: 22 },'fri' => { open: 11, close: 23 },'sat' => { open: 0, close: 24 }}
+
+// ITERAR UN MAP
+// for (const [key, value] of question) {
+//   if (typeof key === "number") {
+//     console.log(`Answer ${key}: ${value}`);
+//     //Answer 1: C, Answer 2: Java, Answer 3: Javascript
+//   }
+// }
+
+// CONVERTIR UN MAP EN UN ARRAY
+// console.log([...question]); //[[ 'question', 'What is the best programming language in the world?' ],[ 1, 'C' ],[ 2, 'Java' ],[ 3, 'Javascript' ],[ 'correct', 3 ],[ true, 'Correct' ],[ false, 'Try again!' ]]
+
+// CODING CHALLENGE 3
+// const gameEvents = new Map([
+//   [17, '⚽ GOAL'],
+//   [36, '� Substitution'],
+//   [47, '⚽ GOAL'],
+//   [61, '� Substitution'],
+//   [64, '� Yellow card'],
+//   [69, '� Red card'],
+//   [70, '� Substitution'],
+//   [72, '� Substitution'],
+//   [76, '⚽ GOAL'],
+//   [80, '⚽ GOAL'],
+//   [92, '� Yellow card'],
+//   ]);
+
+// Task 1
+// const events = [...new Set(gameEvents.values())];
+// console.log(events);
+
+// Task 2
+// gameEvents.delete(64);
+// console.log(gameEvents);
+
+// Task 3
+// const eventSize = 90 / gameEvents.size
+// console.log(`An event happened, on average, every ${eventSize} minutes`);
+
+// Task 4 
+// for (const [keys, values] of gameEvents.entries()) {
+//   if (keys <= 45) {
+//     console.log(`[FIRST HALF] ${keys} : ${values}`);
+//   } else {
+//     console.log(`[SECOND HALF] ${keys} : ${values}`);
+//   }
+// }
+
+// MÉTODOS DE LOS STRINGS
+const airlane = "TAP Air Portugal";
+// console.log(airlane.slice(4));//Air Portugal
+// console.log(airlane.toLowerCase());//tap air portugal
+// console.log(airlane.toUpperCase());//TAP AIR PORTUGAL
+
+// Ejemplo para corregir el nombre mal escrito
+// const passenger = "jOnAS";
+// const passengerLower = passenger.toLowerCase();
+// const passengerCorrect = passengerLower[0].toUpperCase() + passengerLower.slice(1);
+// console.log(passengerCorrect); //Jonas
+
+// Ejemplo con trim()
+// const email = "hello@jonas.io";
+// const loginEmail = "   Hello@jonas.io   ";
+// const lowerEmail = loginEmail.toLowerCase();
+// const trimmedEmail = lowerEmail.trim();
+// console.log(trimmedEmail);//hello@jonas.io
+// // Podemos hacerlo en una sola línea
+// const normalizedEmail = loginEmail.toLocaleLowerCase().trim();
+// console.log(normalizedEmail);//hello@jonas.io
+
+// Ejemplo con replace()
+// const priceGb = "288,97£";
+// const priceUS = priceGb.replace("£", "$").replace(",", ".");
+// console.log(priceUS);//288.97$
+
+// Ejemplo con replaceAll() ESTO TODAVÍA NO FUNCIONA
+// const announcement = "All passengers come to boarding door 23. Boarding door 23!";
+// console.log(announcement.replaceAll("door", "gate"));
+
+// MÉTODOS QUE DEVUELVEN BOOLEANS
+// const plane = "A320neo"
+// includes()
+// console.log(plane.includes("A320"));//true
+// startsWith()
+// console.log(plane.startsWith("Air"));//false
+// endsWith()
+// console.log(plane.endsWith("neo"));//true
+
+// split()
+// console.log("a+very+nice+string".split("+"));//[ 'a', 'very', 'nice', 'string' ]
+// console.log("Joaquin Caggiano".split(" "));//[ 'Joaquin', 'Caggiano' ]
+// const [firstName, lastName] = "Joaquin Caggiano".split(" ");
+// console.log(firstName, lastName);//joaquin caggiano
+
+// join()
+// const newName = ["Mr.", firstName, lastName.toUpperCase()].join(" ");
+// console.log(newName);//Mr. Joaquin CAGGIANO
+// const capitalizeName = function(name){
+//   const names = name.split(" ");
+//   const namesUpper = [];
+
+//   for (const n of names) {
+//     // namesUpper.push(n[0].toUpperCase() + n.slice(1))
+//     namesUpper.push(n.replace(n[0], n[0].toUpperCase()))
+//   }
+//   console.log(namesUpper.join(" ")); //Joaquin Caggiano
+// }
+// capitalizeName("joaquin caggiano")
+
+// padStart() y padEnd()
+// const message = "Joaquin";
+// console.log(message.padStart(20, "-").padEnd(30, "+"));//-------------Joaquin+++++
+// const maskCreditCard = function (number) {
+//   const str = number + "";//esto transforma el numero en un string;
+//   const last = str.slice(-4);
+//   return last.padStart(str.length, "*");
+// }
+// console.log(maskCreditCard(134256457658));//********7658
+
+// repeat()
+// const messageAirPlane = "Todos los vuelos estan demorados.... ";
+// console.log(messageAirPlane.repeat(3)); //se repite el mensaje 3 veces
+
+// CODING CHALLENGE 4
+// document.body.append(document.createElement('textarea'));
+// document.body.append(document.createElement('button'));
+
+// document.querySelector('button').addEventListener("click", () => {
+//   const text = document.querySelector("textarea").value;
+//   const rows = text.split("\n")
+  
+//   for (const row of rows) {
+//    const [first, second] = row.toLowerCase().trim().split("_");
+//    const upperCaseName = `${first}${second.replace(second[0], second[0].toUpperCase())}`;
+//   }
+// })
+
+
