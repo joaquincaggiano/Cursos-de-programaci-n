@@ -1,0 +1,5 @@
+-Terminar curso de Javascript.
+-Hacer un portfolio
+-Hacer pequeños proyectos para mostrar en mi portfolio como pueden ser:
+una calculadora, isporty, un sitio utilizando una Api, etc.
+-Luego empezar el curso de React.
