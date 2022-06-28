@@ -43,6 +43,7 @@ const labelSumIn = document.querySelector('.summary__value--in');
 const labelSumOut = document.querySelector('.summary__value--out');
 const labelSumInterest = document.querySelector('.summary__value--interest');
 const labelTimer = document.querySelector('.timer');
+const msgLoan = document.querySelector('#msg-loan');
 
 const containerApp = document.querySelector('.app');
 const containerMovements = document.querySelector('.movements');
@@ -61,10 +62,12 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
-const displayMovements = function (movements) {
+const displayMovements = function (movements, sort = false) {
   containerMovements.innerHTML = ''; //para vaciar todo lo que había antes y empezar de 0.
 
-  movements.forEach((mov, i) => {
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+
+  movs.forEach((mov, i) => {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
     const html = `
         <div class="movements__row">
@@ -137,7 +140,7 @@ const updateUI = function (acc) {
   calcDisplaySummary(acc);
 };
 
-// Event handler
+// Events handler
 let currentAccount;
 
 btnLogin.addEventListener('click', function (e) {
@@ -172,8 +175,8 @@ btnTransfer.addEventListener('click', function (e) {
   );
   // console.log(amount, receiverAcc);
   //clear the fields
-  inputTransferAmount.value = inputTransferTo.value = "";
-  
+  inputTransferAmount.value = inputTransferTo.value = '';
+
   if (
     amount > 0 &&
     receiverAcc &&
@@ -185,9 +188,62 @@ btnTransfer.addEventListener('click', function (e) {
     receiverAcc.movements.push(amount);
 
     // Update UI
-    updateUI(currentAccount)
+    updateUI(currentAccount);
   }
 });
+
+btnLoan.addEventListener('click', e => {
+  e.preventDefault();
+
+  const amount = Number(inputLoanAmount.value);
+
+  if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
+    //Add movement
+    currentAccount.movements.push(amount);
+
+    //Mensaje
+    msgLoan.textContent = 'Préstamo realizado';
+    msgLoan.style.color = 'black';
+    msgLoan.style.fontSize = '14px';
+
+    //Update UI
+    updateUI(currentAccount);
+  } else {
+    msgLoan.textContent = 'No se pudo realizar el préstamo';
+    msgLoan.style.color = 'red';
+    msgLoan.style.fontSize = '14px';
+  } 
+  inputLoanAmount.value = '';
+});
+
+btnClose.addEventListener('click', e => {
+  e.preventDefault();
+
+  if (
+    inputCloseUsername.value === currentAccount.userName &&
+    Number(inputClosePin.value) === currentAccount.pin
+  ) {
+    const index = accounts.findIndex(acc => {
+      return acc.userName === currentAccount.userName;
+    });
+
+    //Delete account
+    // console.log(index);
+    accounts.splice(index, 1);
+
+    //Hide UI
+    containerApp.style.opacity = 0;
+  }
+  //Ponemos en blanco los campos otra vez
+  inputCloseUsername.value = inputClosePin.value = '';
+});
+
+let sorted = false
+btnSort.addEventListener("click", (e) => {
+  e.preventDefault();
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted;
+})
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -412,4 +468,63 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // const account = accounts.find(acc => acc.owner === "Jessica Davis");
 // console.log(account);//me devuelve el objeto que tiene ese nombre en la propiedad owner
 
-// IMPLEMENTING LOGIN
+// THE SOME AND EVERY METHOD
+// const someMethod = movements.some((mov) => mov > 0);
+// console.log(someMethod);//true
+// const everyMethod = movements.every((mov) => mov > 0);
+// console.log(everyMethod);//false
+
+// THE FLAT AND FLATMAP METHOD
+// const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+// console.log(arr.flat()); //[1, 2, 3, 4, 5, 6, 7, 8]
+
+// const arrDeep = [[[1, 2], 3], [4, [5, 6]], 7, 8];
+// //Le pasamos como argumento 2 para decir que vamos 2 niveles más profundo en el array
+// console.log(arrDeep.flat(2)); //[1, 2, 3, 4, 5, 6, 7, 8]
+
+// const overalBalance = accounts
+//   .map(acc => acc.movements)
+//   .flatMap()
+//   .reduce((acc, mov) => acc + mov, 0);
+// console.log(overalBalance);
+
+// // SORTING ARRAYS
+// // Strings
+// const owners = ["Jonas", "Zach", "Adam", "Martha"];
+// console.log(owners.sort());//["Adam", "Jonas", "Martha", "Zach"]
+// console.log(owners);//["Adam", "Jonas", "Martha", "Zach"]
+
+// //Numbers
+// console.log(movements);//[200, 450, -400, 3000, -650, -130, 70, 1300]
+// //return < 0: a, b (keep order)
+// // return > 0: b, a (switch order)
+// // movements.sort((a, b) => {
+// //   if(a > b){
+// //     return 1;
+// //   }
+// //   if (b > a) {
+// //     return -1;
+// //   }
+// // });
+// movements.sort((a, b) => a - b)//es la mismo que hacer todo lo de arriba
+// console.log(movements);//[-650, -400, -130, 70, 200, 450, 1300, 3000]
+
+// // THE FILL METHOD
+// const x = new Array(7);
+// // console.log(x);//[empty × 7]
+// x.fill(1);
+// // console.log(x);//[1, 1, 1, 1, 1, 1, 1]
+
+// const arr = [1,2,3,4,5,6,7];
+// arr.fill(23, 2, 6);
+// // console.log(arr);//[1, 2, 23, 23, 23, 23, 7]
+
+// // ARRAY.FROM
+// const y = Array.from({length: 7}, () => 1);
+// console.log(y);//[1, 1, 1, 1, 1, 1, 1]
+
+// const z = Array.from({length: 7}, (_, i) => i + 1);
+// console.log(z);//[1, 2, 3, 4, 5, 6, 7]
+
+// const random = Array.from({length: 100}, (_, i) => Math.trunc(Math.random() * 100) + i);
+// console.log(random);
