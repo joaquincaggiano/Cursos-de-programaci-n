@@ -94,7 +94,7 @@ const displayMovements = function (movements, sort = false) {
         <div class="movements__type movements__type--${type}">${
       i + 1
     } ${type}</div>
-        <div class="movements__value">${mov}€</div>
+        <div class="movements__value">${mov.toFixed(2)}€</div>
       </div>
     `;
 
@@ -104,19 +104,19 @@ const displayMovements = function (movements, sort = false) {
 
 const calcDisplayBalance = function (acc) {
   acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
-  labelBalance.textContent = `${acc.balance}€`;
+  labelBalance.textContent = `${acc.balance.toFixed(2)}€`;
 };
 
 const calcDisplaySummary = function (acc) {
   const incomes = acc.movements
     .filter(mov => mov > 0)
     .reduce((acc, mov) => acc + mov, 0);
-  labelSumIn.textContent = `${incomes}€`;
+  labelSumIn.textContent = `${incomes.toFixed(2)}€`;
 
   const out = acc.movements
     .filter(mov => mov < 0)
     .reduce((acc, mov) => acc + mov, 0);
-  labelSumOut.textContent = `${Math.abs(out)}€`;
+  labelSumOut.textContent = `${Math.abs(out).toFixed(2)}€`;
 
   const interest = acc.movements
     .filter(mov => mov > 0)
@@ -126,7 +126,7 @@ const calcDisplaySummary = function (acc) {
       return int >= 1;
     })
     .reduce((acc, int) => acc + int, 0);
-  labelSumInterest.textContent = `${interest}€`;
+  labelSumInterest.textContent = `${interest.toFixed(2)}€`;
 };
 
 const createUsernames = function (accs) {
@@ -206,7 +206,7 @@ btnTransfer.addEventListener('click', function (e) {
 btnLoan.addEventListener('click', function (e) {
   e.preventDefault();
 
-  const amount = Number(inputLoanAmount.value);
+  const amount = Math.floor(inputLoanAmount.value);
 
   if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
     // Add movement
@@ -251,3 +251,82 @@ btnSort.addEventListener('click', function (e) {
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
+
+// // CONVERTING NUMBERS
+// // Converting
+// console.log(Number("23"));
+// console.log(+"23");
+// // Parsing
+// console.log(Number.parseInt("30px", 10));//30
+// console.log(Number.parseInt("30px", 2));//NaN
+// console.log(Number.parseInt("e23", 10));//NaN - debe empezar con un numero
+
+// console.log(Number.parseFloat("2.5rem"));//2.5
+
+// console.log(Number.isNaN(20)); //false
+// console.log(Number.isNaN("20")); //false
+// console.log(Number.isNaN(+"20X")); //true
+// console.log(Number.isNaN(23/0)); //false
+
+// console.log(Number.isFinite(20));//true
+// console.log(Number.isFinite("20"));//false
+
+// // MATH and ROUNDING
+// // Square root
+// console.log(Math.sqrt(25)); //5
+// console.log(25 ** (1 / 2)); //5
+// // Max and Min value
+// console.log(Math.max(5, 23, 5, 8, 14));//23
+// console.log(Math.min(5, 23, 5, 8, 14));//5
+// // PI
+// console.log(Math.PI * Number.parseFloat("10px") ** 2);//314.1592653589793
+// // Random y Trunc
+// console.log(Math.trunc(Math.random() * 6) + 1);//nos da un numero entre 1 y 6
+// const randomInt = (min, max) => {
+//   return Math.trunc(Math.random() * (max - min) + 1) + min;
+// }
+
+// // Rounding Integers
+// console.log(Math.trunc(23.3));//23 - quita decimales
+
+// console.log(Math.round(23.3));//23 - redondea entero más cercano
+// console.log(Math.round(23.9));//24
+
+// console.log(Math.ceil(23.3));//24 - redondea para arriba
+// console.log(Math.ceil(23.9));//24
+
+// console.log(Math.floor(23.3));//23 - redondea para abajo
+// console.log(Math.floor(23.9));//23
+
+// // Rounding decimals
+// console.log((2.7).toFixed(0)); //3
+// console.log((2.7).toFixed(3)); //2.700
+// console.log((2.345).toFixed(2)); //2.35
+
+// // THE REMAINDER OPERATOR
+// console.log(5 % 2);// 1
+// console.log(5 / 2);// % = 2 * 2 + 1
+
+// console.log(8 % 3);// 2
+// console.log(8 / 3);// 8 = 3 * 2 + 2
+
+// console.log(6 % 2);// 0
+// console.log(6 / 2);// 3
+
+// console.log(7 % 2);// 1
+// console.log(7 / 2);//3.5
+
+// const isEven = (n) => n % 2 === 0;
+
+// // NUMERIC SEPARATORS
+// const diameterSolar = 287_460_000_000;
+// console.log(Number("230_000"));//NaN
+
+// // WORKING with BIGINT
+// console.log(Number.MAX_SAFE_INTEGER);//9007199254740991
+// console.log(92373278567832563465843675346n);
+// console.log(BigInt(92373278567832563465843675346));
+// const huge = 785236577892345897n;
+// const num = 14;
+// console.log(huge * BigInt(num));
+// console.log(10n / 3n);// 3n
