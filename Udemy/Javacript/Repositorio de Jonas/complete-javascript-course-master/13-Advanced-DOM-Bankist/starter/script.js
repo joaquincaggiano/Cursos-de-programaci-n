@@ -418,3 +418,21 @@ const logo = document.querySelector('.nav__logo');
 // console.log(h1.nextElementSibling); // un h4
 // // Para leer todos los siblings hacemnos este truco:
 // console.log(h1.parentElement.children); // HTMLCollection(4) [h1, h4, button.btn--text.btn--scroll-to, img.header__img]
+
+// // LIFECYCLE DOM EVENTS
+// document.addEventListener('DOMContentLoaded', function(e){
+//   console.log('HTML parsed and DOM tree built!', e);
+// });
+
+// window.addEventListener('load', function(e){
+//   console.log('Page fully loaded', e);
+// });
+
+// window.addEventListener('beforeunload', function(e){
+//   e.preventDefault();
+//   console.log(e);
+//   e.returnValue = '';
+// });
+
+
+
