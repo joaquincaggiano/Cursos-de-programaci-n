@@ -1,7 +1,5 @@
-import styles from './Navbar.module.css'
-
-// Components
-import { Activelink } from './Activelink';
+import { ActiveLink } from './ActiveLink';
+import styles from './Navbar.module.css';
 
 const menuItems = [
   {
@@ -24,14 +22,20 @@ const menuItems = [
 
 export const Navbar = () => {
   return (
-    <nav>
-      <ul className={styles['menu-container']}>
-        {menuItems.map((item, i) => {
-          return (
-            <li key={i}><Activelink text={item.text} url={item.href}/></li>
-          )
-        })}
-      </ul>
+    <nav className={ styles['menu-container'] }>
+        {
+          menuItems.map( ({ text, href }) => (
+            <ActiveLink key={ href } text={ text } href={ href } />    
+          ))
+
+        }
+
+        {/* 
+        <ActiveLink text="Home" href="/" />
+        <ActiveLink text="About" href="/about" />
+        <ActiveLink text="Contact" href="/contact" /> 
+        <ActiveLink text="Pricing" href="/pricing" />  
+        */}
     </nav>
   );
 };

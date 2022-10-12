@@ -1,26 +1,26 @@
-// Css
-import styles from "./MainLayout.module.css"
+import Head from 'next/head';
+import { Navbar } from '../Navbar';
 
-// Component next
-import Head from "next/head";
 
-// Components
-import { Navbar } from "../Navbar";
+import styles from './MainLayout.module.css';
 
 export const MainLayout = ({ children }) => {
     return (
         <div className={styles.container}>
+          
           <Head>
-            <title>My App - Joaquin</title>
-            <meta name="description" content="Home App" />
+            <title>Home - Joaquin</title>
+            <meta name="description" content="Home Page" />
             <link rel="icon" href="/favicon.ico" />
           </Head>
-    
+        
           <Navbar />
     
           <main className={styles.main}>
-            {children}
-          </main>
+    
+            { children }
+    
+          </main>     
         </div>
-      );
-}
+      )
+};

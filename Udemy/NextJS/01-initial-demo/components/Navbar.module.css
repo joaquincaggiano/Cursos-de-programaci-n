@@ -1,13 +1,5 @@
-.menu-container {
-    display: flex;
-    flex-wrap: wrap;
-    /* justify-content: center; */
-    align-items: center;
-    list-style: none;
-}
 
-.menu-container li {
+
+.menu-container a {
     margin-right: 10px;
-    font-size: 24px;
 }
-

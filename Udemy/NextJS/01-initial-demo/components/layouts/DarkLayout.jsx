@@ -1,14 +1,16 @@
+
+
 export const DarkLayout = ({ children }) => {
   return (
-    <div
-      style={{
-        backgroundColor: "rgba(0,0,0,0.3)",
-        padding: "10px",
-        borderRadius: "5px",
-        textAlign: "center"
-      }}
-    >
-      {children}
+    <div style={{
+        backgroundColor: 'rgba(0,0,0,0.3)',
+        borderRadius: '5px',
+        padding: '10px',
+    }}>
+        <h3>Dark-Layout</h3>
+        <div>
+            { children } 
+        </div>
     </div>
   );
 };
