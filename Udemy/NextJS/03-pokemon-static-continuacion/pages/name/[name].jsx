@@ -10,12 +10,13 @@ import confetti from "canvas-confetti";
 // Components
 import { Layout } from "../../components/Layouts";
 
+// API
+import { pokeApi } from "../../api";
+
 // Utils
 import { getPokemonInfo, localFavorites } from "../../utils";
 
-const PokemonPage = ({ pokemon }) => {
-  // console.log(pokemon)
-
+const PokemonByName = ({ pokemon }) => {
   const [isInFavorite, setIsInFavorite] = useState(
     localFavorites.existInFavorites(pokemon.id)
   );
@@ -110,26 +111,25 @@ const PokemonPage = ({ pokemon }) => {
 };
 
 export const getStaticPaths = async (ctx) => {
-  const pokemons151 = [...Array(151)].map((value, index) => `${index + 1}`);
+  const { data } = await pokeApi.get("/pokemon?limit=151");
+  const pokemonName = data.results.map((pokemon) => pokemon.name)
 
   return {
-    paths: pokemons151.map((id) => {
-      return { params: { id } };
+    paths: pokemonName.map((name) => {
+      return { params: {name} };
     }),
-
-    fallback: false, //si la página no esta en el path da un 404
+    fallback: false,
   };
 };
 
 export const getStaticProps = async (ctx) => {
-  // console.log(ctx.params)
-  const { id } = ctx.params;
+  const { name } = ctx.params;
 
   return {
     props: {
-      pokemon: await getPokemonInfo(id),
+      pokemon: await getPokemonInfo(name)
     },
   };
 };
 
-export default PokemonPage;
+export default PokemonByName;
