@@ -1,15 +1,30 @@
 export const uiReducer = (state, action) => {
   switch (action.type) {
-    case 'UI - Open Sidebar':
+    case "UI - Open Sidebar":
       return {
         ...state,
         sideMenuOpen: true,
       };
 
-    case 'UI - Close Sidebar':
+    case "UI - Close Sidebar":
       return {
         ...state,
         sideMenuOpen: false,
+      };
+    case "UI - Toggle New Entry":
+      return {
+        ...state,
+        isAddingEntry: action.payload,
+      };
+    case "UI - Start Dragging":
+      return {
+        ...state,
+        isDragging: true,
+      };
+    case "UI - End Dragging":
+      return {
+        ...state,
+        isDragging: false,
       };
     default:
       return state;

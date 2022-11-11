@@ -2,7 +2,8 @@
 import { Layout } from "../components/layouts";
 
 // Material UI
-import { Card, CardContent, CardHeader, Grid } from "@mui/material";
+import { Card, CardHeader, Grid } from "@mui/material";
+import { EntryList, NewEntry } from "../components/ui";
 
 export default function Home() {
   return (
@@ -12,22 +13,22 @@ export default function Home() {
           <Card sx={{ height: "calc(100vh - 100px)" }}>
             <CardHeader title="Pendientes" />
 
-            <CardContent>
-              {/* {agregar una nueva entrada} */}
-              {/* {listado de las entradas} */}
-            </CardContent>
+            <NewEntry />
+            <EntryList status="pending" />
           </Card>
         </Grid>
 
         <Grid item xs={12} sm={4}>
           <Card sx={{ height: "calc(100vh - 100px)" }}>
             <CardHeader title="En Progreso" />
+            <EntryList status="in-progress" />
           </Card>
         </Grid>
 
         <Grid item xs={12} sm={4}>
           <Card sx={{ height: "calc(100vh - 100px)" }}>
             <CardHeader title="Completadas" />
+            <EntryList status="finished" />
           </Card>
         </Grid>
       </Grid>

@@ -9,6 +9,8 @@ import { uiReducer } from "./";
 
 const UI_INITIAL_STATE = {
   sideMenuOpen: false,
+  isAddingEntry: false,
+  isDragging: false
 };
 
 export const UIProvider = ({ children }) => {
@@ -22,10 +24,25 @@ export const UIProvider = ({ children }) => {
     dispatch({ type: "UI - Close Sidebar" });
   };
 
+  const setIsAddingEntry = (isAddingEntry) => {
+    dispatch({ type: "UI - Toggle New Entry", payload: isAddingEntry });
+  }
+
+  const startDragging = () => {
+    dispatch({ type: "UI - Start Dragging" });
+  }
+
+  const endDragging = () => {
+    dispatch({ type: "UI - End Dragging" });
+  }
+
   const providerObject = {
     ...state,
     openSideMenu,
     closeSideMenu,
+    setIsAddingEntry,
+    startDragging,
+    endDragging
   };
 
   return (
