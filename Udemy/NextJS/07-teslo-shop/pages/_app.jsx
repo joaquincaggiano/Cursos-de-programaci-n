@@ -1,19 +1,34 @@
 // Material UI
-import { CssBaseline, ThemeProvider } from '@mui/material'
+import { CssBaseline, ThemeProvider } from "@mui/material";
+
+// SWR
+import { SWRConfig } from "swr";
+
+// Context
+import { UIProvider } from "../context/ui";
 
 // Themes
-import { lightTheme } from '../themes'
+import { lightTheme } from "../themes";
 
 // Css
-import '../styles/globals.css'
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ThemeProvider theme={lightTheme}>
-      <CssBaseline />
-      <Component {...pageProps} />
-    </ThemeProvider>
-  )
+    <SWRConfig
+      value={{
+        fetcher: (resource, init) =>
+          fetch(resource, init).then((res) => res.json()),
+      }}
+    >
+      <UIProvider>
+        <ThemeProvider theme={lightTheme}>
+          <CssBaseline />
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </UIProvider>
+    </SWRConfig>
+  );
 }
 
-export default MyApp
+export default MyApp;
