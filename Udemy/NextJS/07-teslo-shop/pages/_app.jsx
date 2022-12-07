@@ -5,7 +5,8 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import { SWRConfig } from "swr";
 
 // Context
-import { UIProvider } from "../context/ui";
+import { UIProvider } from "../context";
+import { CartProvider } from "../context";
 
 // Themes
 import { lightTheme } from "../themes";
@@ -21,12 +22,14 @@ function MyApp({ Component, pageProps }) {
           fetch(resource, init).then((res) => res.json()),
       }}
     >
-      <UIProvider>
-        <ThemeProvider theme={lightTheme}>
-          <CssBaseline />
-          <Component {...pageProps} />
-        </ThemeProvider>
-      </UIProvider>
+      <CartProvider>
+        <UIProvider>
+          <ThemeProvider theme={lightTheme}>
+            <CssBaseline />
+            <Component {...pageProps} />
+          </ThemeProvider>
+        </UIProvider>
+      </CartProvider>
     </SWRConfig>
   );
 }

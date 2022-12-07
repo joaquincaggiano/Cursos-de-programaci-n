@@ -13,6 +13,7 @@ import {
   Box,
   Typography,
   Link,
+  Chip,
 } from "@mui/material";
 
 export const ProductCard = ({ product }) => {
@@ -34,9 +35,26 @@ export const ProductCard = ({ product }) => {
       onMouseLeave={() => setisHovered(false)}
     >
       <Card>
-        <NextLink href={`/product/${product.slug}`} passHref legacyBehavior prefetch={false}>
+        <NextLink
+          href={`/product/${product.slug}`}
+          passHref
+          legacyBehavior
+          prefetch={false}
+        >
           <Link>
             <CardActionArea>
+              {product.inStock === 0 && (
+                <Chip
+                  color="primary"
+                  label="No hay disponibles"
+                  sx={{
+                    position: "absolute",
+                    zIndex: 99,
+                    top: "10px",
+                    left: "10px",
+                  }}
+                />
+              )}
               <CardMedia
                 component="img"
                 className="fadeIn"
@@ -49,7 +67,10 @@ export const ProductCard = ({ product }) => {
         </NextLink>
       </Card>
 
-      <Box sx={{ mt: 1, display: isImageLoading ? "block" : "none" }} className="fadeIn">
+      <Box
+        sx={{ mt: 1, display: isImageLoading ? "block" : "none" }}
+        className="fadeIn"
+      >
         <Typography fontWeight={700}>{product.title}</Typography>
         <Typography fontWeight={500}>${product.price}</Typography>
       </Box>
