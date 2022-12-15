@@ -1,3 +1,12 @@
+// React Hooks
+import { useContext, useEffect } from "react";
+
+// Next
+import { useRouter } from "next/router";
+
+// Context
+import { CartContext } from "../../context";
+
 // Components
 import { ShopLayout } from "../../components/layouts";
 import { CartList, OrderSummary } from "../../components/cart";
@@ -14,6 +23,20 @@ import {
 } from "@mui/material";
 
 const CartPage = () => {
+  const { isLoaded, cart } = useContext(CartContext);
+
+  const router = useRouter();
+
+  useEffect(() => {
+    if (isLoaded && cart.length === 0) {
+      router.replace("/cart/empty");
+    }
+  }, [isLoaded, cart, router]);
+
+  if (!isLoaded || cart.length === 0) {
+    return <></>;
+  }
+
   return (
     <ShopLayout
       title="Carrito - 3"
@@ -24,7 +47,6 @@ const CartPage = () => {
       </Typography>
 
       <Grid container>
-
         <Grid item xs={12} sm={7}>
           <CartList editable />
         </Grid>
@@ -38,14 +60,18 @@ const CartPage = () => {
               <OrderSummary />
 
               <Box sx={{ mt: 3 }}>
-                <Button color="secondary" className="circular-btn" fullWidth>
+                <Button 
+                  color="secondary" 
+                  className="circular-btn" 
+                  fullWidth
+                  href="/checkout/address"
+                >
                   Checkout
                 </Button>
               </Box>
             </CardContent>
           </Card>
         </Grid>
-
       </Grid>
     </ShopLayout>
   );

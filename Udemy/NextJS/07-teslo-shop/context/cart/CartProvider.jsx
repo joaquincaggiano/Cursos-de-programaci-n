@@ -11,6 +11,7 @@ import { cartReducer } from "./";
 import Cookies from "js-cookie";
 
 const CART_INITIAL_STATE = {
+  isLoaded: false,
   cart: [],
   numberOfItems: 0,
   subTotal: 0,
