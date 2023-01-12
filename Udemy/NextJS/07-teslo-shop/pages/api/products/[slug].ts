@@ -42,6 +42,4 @@ async function getProductBySlug(req: NextApiRequest, res: NextApiResponse<Data>)
       });
 
     return res.json( product );
-
-
 }
