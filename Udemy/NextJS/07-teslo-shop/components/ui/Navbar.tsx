@@ -78,7 +78,7 @@ export const Navbar = () => {
 
         <Box flex={1} />
 
-        {/* Pantallas pantallas grandes */}
+        {/* Pantallas grandes */}
         {isSearchVisible ? (
           <Input
             sx={{ display: { xs: "none", sm: "flex" } }}
