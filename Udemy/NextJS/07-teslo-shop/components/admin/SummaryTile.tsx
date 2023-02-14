@@ -23,10 +23,20 @@ export const SummaryTile: FC<Props> = ({ title, subTitle, icon }) => {
           {icon}
         </CardContent>
         <CardContent
-          sx={{ flex: "1 0 auto", display: "flex", flexWrap: "wrap", alignItems:"center", justifyContent: "space-between" }}
+          sx={{
+            flex: "1 0 auto",
+            display: "flex",
+            flexWrap: "wrap",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
         >
-          <Typography variant="h3" sx={{fontSize: "26px"}}>{subTitle}: </Typography>
-          <Typography variant="caption"sx={{fontSize: "20px"}}>{title}</Typography>
+          <Typography variant="h3" sx={{ fontSize: "26px" }}>
+            {subTitle}:{" "}
+          </Typography>
+          <Typography variant="caption" sx={{ fontSize: "20px" }}>
+            {title}
+          </Typography>
         </CardContent>
       </Card>
     </Grid>
