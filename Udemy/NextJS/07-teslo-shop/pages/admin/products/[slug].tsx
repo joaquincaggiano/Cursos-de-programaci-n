@@ -148,11 +148,7 @@ const ProductAdminPage: FC<Props> = ({ product }) => {
   };
 
   const onDeleteImage = (image: string) => {
-    setValue(
-      "images",
-      getValues("images").filter((img) => img !== image),
-      { shouldValidate: true }
-    );
+    setValue("images", getValues("images").filter((img) => img !== image), { shouldValidate: true });
   };
 
   const onSubmit = async (form: FormData) => {
