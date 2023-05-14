@@ -34,7 +34,7 @@ const LoginPage = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<FormData>();
-  
+
   const [showError, setShowError] = useState(false);
 
   const [providers, setProviders] = useState<any>({});
