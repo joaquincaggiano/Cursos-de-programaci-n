@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Text, TouchableOpacity, View, StyleSheet} from 'react-native';
+import {Fab} from '../components/Fab';
 
 export const ContadorScreen = () => {
   const [counter, setCounter] = useState(0);
@@ -7,20 +8,9 @@ export const ContadorScreen = () => {
     <View style={styles.container}>
       <Text style={styles.title}>Contador: {counter}</Text>
 
-      <TouchableOpacity
-        style={styles.fabLocationRight}
-        onPress={() => setCounter(counter + 1)}>
-        <View style={styles.fab}>
-          <Text style={styles.fabText}>+1</Text>
-        </View>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.fabLocationLeft}
-        onPress={() => setCounter(counter - 1)}>
-        <View style={styles.fab}>
-          <Text style={styles.fabText}>-1</Text>
-        </View>
-      </TouchableOpacity>
+      <Fab title="+1" onPress={() => setCounter(counter + 1)} />
+
+      <Fab title="-1" position="bl" onPress={() => setCounter(counter - 1)} />
     </View>
   );
 };
@@ -33,28 +23,5 @@ const styles = StyleSheet.create({
   title: {
     textAlign: 'center',
     fontSize: 40,
-  },
-  fabLocationRight: {
-    position: 'absolute',
-    bottom: 25,
-    right: 25,
-  },
-  fabLocationLeft: {
-    position: 'absolute',
-    bottom: 25,
-    left: 25,
-  },
-  fab: {
-    backgroundColor: '#5856D6',
-    width: 60,
-    height: 60,
-    borderRadius: 100,
-    justifyContent: 'center',
-  },
-  fabText: {
-    color: 'white',
-    fontSize: 25,
-    fontWeight: 'bold',
-    alignSelf: 'center',
   },
 });
