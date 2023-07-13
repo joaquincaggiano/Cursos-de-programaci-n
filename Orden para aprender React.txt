@@ -1,6 +1,0 @@
-Redux
-Styled components
-React Router v6
-Hooks (useMemo, useCallback, custom hooks)
-Next.js
-TypeScript
