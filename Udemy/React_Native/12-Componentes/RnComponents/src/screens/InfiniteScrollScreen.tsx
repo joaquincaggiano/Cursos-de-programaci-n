@@ -1,9 +1,11 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {ActivityIndicator, FlatList, StyleSheet, View} from 'react-native';
 import {HeaderTitle} from '../components/HeaderTitle';
 import {FadeInImage} from '../components/FadeInImage';
+import {ThemeContext} from '../context/ThemeContext';
 
 export const InfiniteScrollScreen = () => {
+  const {theme} = useContext(ThemeContext);
   const [numbers, setNumbers] = useState([0, 1, 2, 3, 4, 5]);
 
   const loadMore = () => {
@@ -41,7 +43,7 @@ export const InfiniteScrollScreen = () => {
         onEndReachedThreshold={0.5} //a partir de cuando va a cargar la nueva informacion, 0.5 mitad de la pantalla
         ListFooterComponent={() => (
           <View style={infiteStyles.loading}>
-            <ActivityIndicator size={25} color="#5856D6" />
+            <ActivityIndicator size={25} color={theme.colors.text} />
           </View>
         )}
       />

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {View, Text, SectionList} from 'react-native';
 import {HeaderTitle} from '../components/HeaderTitle';
 import {styles} from '../theme/appTheme';
 import {ItemSeparator} from '../components/ItemSeparator';
+import {ThemeContext} from '../context/ThemeContext';
 
 interface Casas {
   casa: string;
@@ -39,12 +40,15 @@ const casas: Casas[] = [
 ];
 
 export const CustomSectionListScreen = () => {
+  const {theme} = useContext(ThemeContext);
   return (
     <View style={{...styles.globalMargin, flex: 1}}>
       <SectionList
         sections={casas}
         keyExtractor={(item, i) => item + i} //identificador único
-        renderItem={({item}) => <Text style={{fontSize: 20}}>{item}</Text>} //renderiza el item
+        renderItem={({item}) => (
+          <Text style={{fontSize: 20, color: theme.colors.text}}>{item}</Text>
+        )} //renderiza el item
         ListHeaderComponent={() => <HeaderTitle title="Header List" />} //Renderiza un Header
         ListFooterComponent={() => (
           <View style={{marginBottom: 50}}>
@@ -53,15 +57,33 @@ export const CustomSectionListScreen = () => {
         )} //Renderiza un Footer
         stickySectionHeadersEnabled //le da un efecto bonito
         renderSectionHeader={({section}) => (
-          <View style={{backgroundColor: 'white', marginVertical: 10}}>
-            <Text style={{fontSize: 26, color: 'black', fontWeight: 'bold'}}>
+          <View
+            style={{
+              backgroundColor: theme.colors.background,
+              marginVertical: 10,
+            }}>
+            <Text
+              style={{
+                fontSize: 26,
+                color: theme.colors.text,
+                fontWeight: 'bold',
+              }}>
               {section.casa}
             </Text>
           </View>
         )} //renderiza el titulo del item
         renderSectionFooter={({section}) => (
-          <View style={{backgroundColor: 'white', marginVertical: 5}}>
-            <Text style={{fontSize: 22, color: 'black', fontWeight: 'bold'}}>
+          <View
+            style={{
+              backgroundColor: theme.colors.background,
+              marginVertical: 5,
+            }}>
+            <Text
+              style={{
+                fontSize: 22,
+                color: theme.colors.text,
+                fontWeight: 'bold',
+              }}>
               {`Total: ${section.data.length}`}
             </Text>
           </View>
